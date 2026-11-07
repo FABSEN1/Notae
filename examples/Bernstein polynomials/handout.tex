@@ -1,0 +1,807 @@
+\documentclass[11pt]{article}
+
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{PTSerif}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem{theorem}{Теорема}
+\newtheorem{lemma}{Лемма}
+\newenvironment{note}{\begin{quote}\itshape}{\end{quote}}
+\makeatletter
+\@ifundefined{theorem}{\newtheorem{theorem}{Теорема}}{}
+\@ifundefined{lemma}{\newtheorem{lemma}{Лемма}}{}
+\@ifundefined{definition}{\newtheorem{definition}{Определение}}{}
+\@ifundefined{corollary}{\newtheorem{corollary}{Следствие}}{}
+\@ifundefined{proposition}{\newtheorem{proposition}{Утверждение}}{}
+\@ifundefined{remark}{\newtheorem{remark}{Замечание}}{}
+\@ifundefined{example}{\newtheorem{example}{Пример}}{}
+\makeatother
+\linespread{1}
+
+\usepackage{geometry}
+
+\geometry{paperwidth=36.1cm,paperheight=20.3cm,margin=1.2cm}
+
+\pagestyle{empty}
+
+\definecolor{notaeBG}{HTML}{121417}
+
+\definecolor{notaeTEXT}{HTML}{E9E6E1}
+
+\definecolor{notaeMUTED}{HTML}{A7A39C}
+
+\definecolor{notaeYELLOW}{HTML}{FFD166}
+
+\definecolor{notaeGOLD}{HTML}{E3B56B}
+
+\definecolor{notaeBLUE}{HTML}{7FB3D5}
+
+\DeclareMathSizes{36}{36}{25}{18}
+
+\DeclareMathSizes{44}{44}{31}{22}
+
+\DeclareMathSizes{56}{56}{39}{28}
+
+\pagecolor{notaeBG}
+
+\color{notaeTEXT}
+
+\begin{document}
+
+\vspace*{\fill}
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{56}{64}\selectfont Полиномы Бернштейна}\\[0.5em]
+{\color{notaeGOLD}\rule{6.4in}{1.5pt}}\\[1.3em]
+{\color{notaeTEXT}\fontsize{34}{40}\selectfont А.~В.~Уткин}\\[0.5em]
+{\color{notaeMUTED}\fontsize{24}{29}\selectfont МФТИ, кафедра высшей математики}\\[1.1em]
+{\color{notaeBLUE}\fontsize{26}{31}\selectfont Семинар по теории вероятностей}\\[0.4em]
+{\color{notaeMUTED}\fontsize{22}{27}\selectfont 2026}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Тема доклада:}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Тема доклада:}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Конструктивное доказательство теоремы Вейерштрасса\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Тема доклада:}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Конструктивное доказательство теоремы Вейерштрасса\par\vspace{0.4in}
+вероятностными методами\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Вейерштрасса}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Вейерштрасса}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\textbf{Теорема} (Вейерштрасс, 1885).\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Вейерштрасса}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\textbf{Теорема} (Вейерштрасс, 1885).\par\vspace{0.4in}
+Для любой $f \in C[a,b]$ и любого $\varepsilon>0$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Вейерштрасса}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\textbf{Теорема} (Вейерштрасс, 1885).\par\vspace{0.4in}
+Для любой $f \in C[a,b]$ и любого $\varepsilon>0$\par\vspace{0.4in}
+существует многочлен $P$ такой, что\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Вейерштрасса}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\textbf{Теорема} (Вейерштрасс, 1885).\par\vspace{0.4in}
+Для любой $f \in C[a,b]$ и любого $\varepsilon>0$\par\vspace{0.4in}
+существует многочлен $P$ такой, что\par\vspace{0.4in}
+$\|f - P\|_{C[a,b]} < \varepsilon.$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Вейерштрасса}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\textbf{Теорема} (Вейерштрасс, 1885).\par\vspace{0.4in}
+Для любой $f \in C[a,b]$ и любого $\varepsilon>0$\par\vspace{0.4in}
+существует многочлен $P$ такой, что\par\vspace{0.4in}
+$\|f - P\|_{C[a,b]} < \varepsilon.$\par\vspace{0.4in}
+Здесь $\|f\|_{C[a,b]}=\sup\limits_{x\in[a,b]}|f(x)|$.\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Вейерштрасса}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\textbf{Теорема} (Вейерштрасс, 1885).\par\vspace{0.4in}
+Для любой $f \in C[a,b]$ и любого $\varepsilon>0$\par\vspace{0.4in}
+существует многочлен $P$ такой, что\par\vspace{0.4in}
+$\|f - P\|_{C[a,b]} < \varepsilon.$\par\vspace{0.4in}
+Здесь $\|f\|_{C[a,b]}=\sup\limits_{x\in[a,b]}|f(x)|$.\par\vspace{0.4in}
+Иными словами, многочлены всюду плотны в $C[a,b]$.\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Многочлены Бернштейна}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Многочлены Бернштейна}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Пусть $f \in C[0,1]$. Положим\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Многочлены Бернштейна}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Пусть $f \in C[0,1]$. Положим\par\vspace{0.4in}
+$B_n(f;x) = \sum\limits_{k=0}^{n}  C_n^k x^k (1-x)^{n-k}\ f\!\left(\frac{k}{n}\right).$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Многочлены Бернштейна}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Пусть $f \in C[0,1]$. Положим\par\vspace{0.4in}
+$B_n(f;x) = \sum\limits_{k=0}^{n}  C_n^k x^k (1-x)^{n-k}\ f\!\left(\frac{k}{n}\right).$\par\vspace{0.4in}
+Введём случайную величину $S_n(x) \sim \mathrm{Bin}(n,x)$. Тогда\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Многочлены Бернштейна}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Пусть $f \in C[0,1]$. Положим\par\vspace{0.4in}
+$B_n(f;x) = \sum\limits_{k=0}^{n}  C_n^k x^k (1-x)^{n-k}\ f\!\left(\frac{k}{n}\right).$\par\vspace{0.4in}
+Введём случайную величину $S_n(x) \sim \mathrm{Bin}(n,x)$. Тогда\par\vspace{0.4in}
+$B_n(f;x) = \mathbb{E}\, f\!\left(\frac{S_n(x)}{n}\right).$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вспомогательные факты}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вспомогательные факты}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+$\mathbb{E}\, \frac{S_n(x)}{n} = x,$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вспомогательные факты}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+$\mathbb{E}\, \frac{S_n(x)}{n} = x,$\par\vspace{0.4in}
+$\mathbb{D}\, \left(\frac{S_n(x)}{n}\right)= \dfrac{x(1-x)}{n}$. \quad {\color{red} \footnotesize (Проверьте!)}\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вспомогательные факты}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+$\mathbb{E}\, \frac{S_n(x)}{n} = x,$\par\vspace{0.4in}
+$\mathbb{D}\, \left(\frac{S_n(x)}{n}\right)= \dfrac{x(1-x)}{n}$. \quad {\color{red} \footnotesize (Проверьте!)}\par\vspace{0.4in}
+Следовательно,\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вспомогательные факты}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+$\mathbb{E}\, \frac{S_n(x)}{n} = x,$\par\vspace{0.4in}
+$\mathbb{D}\, \left(\frac{S_n(x)}{n}\right)= \dfrac{x(1-x)}{n}$. \quad {\color{red} \footnotesize (Проверьте!)}\par\vspace{0.4in}
+Следовательно,\par\vspace{0.4in}
+$\mathbb{E}\left(\frac{S_n(x)}{n} - x\right)^2 = \frac{x(1-x)}{n} \leqslant \frac{1}{4n}.$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Идея доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Идея доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+$B_n(f;x) - f(x) = \mathbb{E}\left[ f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right].$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Идея доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+$B_n(f;x) - f(x) = \mathbb{E}\left[ f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right].$\par\vspace{0.4in}
+Зафиксируем $\delta>0$ и разобьём исходы:\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Идея доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+$B_n(f;x) - f(x) = \mathbb{E}\left[ f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right].$\par\vspace{0.4in}
+Зафиксируем $\delta>0$ и разобьём исходы:\par\vspace{0.4in}
+$A = \left\{ \left|\frac{S_n(x)}{n} - x \right| < \delta \right\}, \qquad A^c = \left\{ \left|\frac{S_n(x)}{n} - x \right| \geqslant \delta \right\}.$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Идея доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+$B_n(f;x) - f(x) = \mathbb{E}\left[ f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right].$\par\vspace{0.4in}
+Зафиксируем $\delta>0$ и разобьём исходы:\par\vspace{0.4in}
+$A = \left\{ \left|\frac{S_n(x)}{n} - x \right| < \delta \right\}, \qquad A^c = \left\{ \left|\frac{S_n(x)}{n} - x \right| \geqslant \delta \right\}.$\par\vspace{0.4in}
+$\left| B_n(f;x) - f(x) \right| \leqslant \mathbb{E}\left[ \left| f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right| \cdot \mathbf{1}_A \right] + \mathbb{E}\left[ \left| f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right| \cdot \mathbf{1}_{A^c} \right].$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Близкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Близкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Так как $f$ непрерывна на компакте $[0,1]$, она равномерно непрерывна:\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Близкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Так как $f$ непрерывна на компакте $[0,1]$, она равномерно непрерывна:\par\vspace{0.4in}
+$\forall \varepsilon>0\ \exists \delta>0: \quad |u-v|<\delta\ \Rightarrow\ |f(u)-f(v)|<\varepsilon.$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Близкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Так как $f$ непрерывна на компакте $[0,1]$, она равномерно непрерывна:\par\vspace{0.4in}
+$\forall \varepsilon>0\ \exists \delta>0: \quad |u-v|<\delta\ \Rightarrow\ |f(u)-f(v)|<\varepsilon.$\par\vspace{0.4in}
+Тогда на множестве $A$:\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Близкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Так как $f$ непрерывна на компакте $[0,1]$, она равномерно непрерывна:\par\vspace{0.4in}
+$\forall \varepsilon>0\ \exists \delta>0: \quad |u-v|<\delta\ \Rightarrow\ |f(u)-f(v)|<\varepsilon.$\par\vspace{0.4in}
+Тогда на множестве $A$:\par\vspace{0.4in}
+$\left| f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right| < \varepsilon,$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Близкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Так как $f$ непрерывна на компакте $[0,1]$, она равномерно непрерывна:\par\vspace{0.4in}
+$\forall \varepsilon>0\ \exists \delta>0: \quad |u-v|<\delta\ \Rightarrow\ |f(u)-f(v)|<\varepsilon.$\par\vspace{0.4in}
+Тогда на множестве $A$:\par\vspace{0.4in}
+$\left| f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right| < \varepsilon,$\par\vspace{0.4in}
+поэтому\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Близкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Так как $f$ непрерывна на компакте $[0,1]$, она равномерно непрерывна:\par\vspace{0.4in}
+$\forall \varepsilon>0\ \exists \delta>0: \quad |u-v|<\delta\ \Rightarrow\ |f(u)-f(v)|<\varepsilon.$\par\vspace{0.4in}
+Тогда на множестве $A$:\par\vspace{0.4in}
+$\left| f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right| < \varepsilon,$\par\vspace{0.4in}
+поэтому\par\vspace{0.4in}
+$\mathbb{E}\left[ \left| f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right| \cdot \mathbf{1}_A \right] < \varepsilon \, \mathbb{P}(A) \leqslant \varepsilon.$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Далёкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Далёкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Пусть $M = \|f\|_{C[0,1]}$. Тогда\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Далёкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Пусть $M = \|f\|_{C[0,1]}$. Тогда\par\vspace{0.4in}
+$\left| f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right| \leqslant 2M.$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Далёкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Пусть $M = \|f\|_{C[0,1]}$. Тогда\par\vspace{0.4in}
+$\left| f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right| \leqslant 2M.$\par\vspace{0.4in}
+По неравенству Чебышёва \quad  {\color{red} \footnotesize (Убедитесь сами!)}\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Далёкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Пусть $M = \|f\|_{C[0,1]}$. Тогда\par\vspace{0.4in}
+$\left| f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right| \leqslant 2M.$\par\vspace{0.4in}
+По неравенству Чебышёва \quad  {\color{red} \footnotesize (Убедитесь сами!)}\par\vspace{0.4in}
+$\mathbb{P}(A^c) = \mathbb{P}\left( \left|\frac{S_n(x)}{n} - x\right| \geqslant \delta \right) \leqslant \frac{\mathbb{D}(S_n(x)/n)}{\delta^2} = \frac{x(1-x)}{n\delta^2} \leqslant \frac{1}{4n\delta^2}.$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Далёкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Пусть $M = \|f\|_{C[0,1]}$. Тогда\par\vspace{0.4in}
+$\left| f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right| \leqslant 2M.$\par\vspace{0.4in}
+По неравенству Чебышёва \quad  {\color{red} \footnotesize (Убедитесь сами!)}\par\vspace{0.4in}
+$\mathbb{P}(A^c) = \mathbb{P}\left( \left|\frac{S_n(x)}{n} - x\right| \geqslant \delta \right) \leqslant \frac{\mathbb{D}(S_n(x)/n)}{\delta^2} = \frac{x(1-x)}{n\delta^2} \leqslant \frac{1}{4n\delta^2}.$\par\vspace{0.4in}
+Следовательно,\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Далёкие точки}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Пусть $M = \|f\|_{C[0,1]}$. Тогда\par\vspace{0.4in}
+$\left| f\!\left(\frac{S_n(x)}{n}\right) - f(x) \right| \leqslant 2M.$\par\vspace{0.4in}
+По неравенству Чебышёва \quad  {\color{red} \footnotesize (Убедитесь сами!)}\par\vspace{0.4in}
+$\mathbb{P}(A^c) = \mathbb{P}\left( \left|\frac{S_n(x)}{n} - x\right| \geqslant \delta \right) \leqslant \frac{\mathbb{D}(S_n(x)/n)}{\delta^2} = \frac{x(1-x)}{n\delta^2} \leqslant \frac{1}{4n\delta^2}.$\par\vspace{0.4in}
+Следовательно,\par\vspace{0.4in}
+$\mathbb{E}\left[ \left| f\!\left(\frac{S_n}{n}\right) - f(x) \right| \cdot \mathbf{1}_{A^c} \right] \leqslant 2M \, \mathbb{P}(A^c) \leqslant \frac{M}{2n\delta^2}.$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Завершение доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Завершение доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Объединяя оценки:\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Завершение доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Объединяя оценки:\par\vspace{0.4in}
+$\left| B_n(f;x) - f(x) \right| < \varepsilon + \frac{M}{2n\delta^2}.$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Завершение доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Объединяя оценки:\par\vspace{0.4in}
+$\left| B_n(f;x) - f(x) \right| < \varepsilon + \frac{M}{2n\delta^2}.$\par\vspace{0.4in}
+Выберем $N$ так, чтобы при $n \geqslant N$ выполнялось\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Завершение доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Объединяя оценки:\par\vspace{0.4in}
+$\left| B_n(f;x) - f(x) \right| < \varepsilon + \frac{M}{2n\delta^2}.$\par\vspace{0.4in}
+Выберем $N$ так, чтобы при $n \geqslant N$ выполнялось\par\vspace{0.4in}
+$\frac{M}{2n\delta^2} < \varepsilon.$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Завершение доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Объединяя оценки:\par\vspace{0.4in}
+$\left| B_n(f;x) - f(x) \right| < \varepsilon + \frac{M}{2n\delta^2}.$\par\vspace{0.4in}
+Выберем $N$ так, чтобы при $n \geqslant N$ выполнялось\par\vspace{0.4in}
+$\frac{M}{2n\delta^2} < \varepsilon.$\par\vspace{0.4in}
+Тогда для всех $x \in [0,1]$ и всех $n \geqslant N$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Завершение доказательства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Объединяя оценки:\par\vspace{0.4in}
+$\left| B_n(f;x) - f(x) \right| < \varepsilon + \frac{M}{2n\delta^2}.$\par\vspace{0.4in}
+Выберем $N$ так, чтобы при $n \geqslant N$ выполнялось\par\vspace{0.4in}
+$\frac{M}{2n\delta^2} < \varepsilon.$\par\vspace{0.4in}
+Тогда для всех $x \in [0,1]$ и всех $n \geqslant N$\par\vspace{0.4in}
+$\left| B_n(f;x) - f(x) \right| < 2\varepsilon.$\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Мы построили явную последовательность многочленов $B_n(f)$,\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Мы построили явную последовательность многочленов $B_n(f)$,\par\vspace{0.4in}
+равномерно сходящуюся к $f$.\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Мы построили явную последовательность многочленов $B_n(f)$,\par\vspace{0.4in}
+равномерно сходящуюся к $f$.\par\vspace{0.4in}
+Доказательство использовало только:\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Мы построили явную последовательность многочленов $B_n(f)$,\par\vspace{0.4in}
+равномерно сходящуюся к $f$.\par\vspace{0.4in}
+Доказательство использовало только:\par\vspace{0.4in}
+— равномерную непрерывность $f$;\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Мы построили явную последовательность многочленов $B_n(f)$,\par\vspace{0.4in}
+равномерно сходящуюся к $f$.\par\vspace{0.4in}
+Доказательство использовало только:\par\vspace{0.4in}
+— равномерную непрерывность $f$;\par\vspace{0.4in}
+— мат. ожидание и дисперсию биномиального распределения;\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+Мы построили явную последовательность многочленов $B_n(f)$,\par\vspace{0.4in}
+равномерно сходящуюся к $f$.\par\vspace{0.4in}
+Доказательство использовало только:\par\vspace{0.4in}
+— равномерную непрерывность $f$;\par\vspace{0.4in}
+— мат. ожидание и дисперсию биномиального распределения;\par\vspace{0.4in}
+— неравенство Чебышёва.\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\Huge Спасибо за внимание!\par\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\end{document}

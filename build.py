@@ -1,4 +1,4 @@
-r"""Notae — сборка презентации из сценарного файла.
+r"""Notae — сборка презентации из файла сценария.
 
 Запуск:  python build.py   (или двойной клик)
 
@@ -1358,7 +1358,7 @@ def cleanup():
 
 def ask_continue() -> bool:
     try:
-        ans = input("Продолжить предыдущую компиляцию? (y/n): ").strip().lower()
+        ans = input("Использовать готовые видео из media/slides/ (y — доделать недостающие, n — очистить и собрать заново): ").strip().lower()
         return ans.startswith("y")
     except (EOFError, OSError):
         return True
