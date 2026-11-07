@@ -1,0 +1,19 @@
+# Артефакты сборки Notae
+media/
+_work/
+__pycache__/
+*.pyc
+_scenes.py
+*.log
+*.aux
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Служебные папки редакторов
+.venv/
+venv/
+.idea/
+.vscode/
