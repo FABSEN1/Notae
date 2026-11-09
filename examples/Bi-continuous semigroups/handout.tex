@@ -1,0 +1,3055 @@
+\documentclass[11pt]{article}
+
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{PTSerif}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{mathrsfs}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cm}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\suml}[1]{\sum\limits_{#1=1}}
+\newcommand{\Tr}{\operatorname{tr}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Img}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Con}{\mathscr{C}}
+\newcommand{\Prb}{\mathbb{P}}
+\newcommand{\Lp}{\mathbb{L}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Hilb}{\mathcal{H}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\let\eps\varepsilon
+\let\Om\Omega
+\let\om\omega
+\let\<\langle
+\let\>\rangle
+\let\ph\varphi
+\makeatletter
+\@ifundefined{theorem}{\newtheorem{theorem}{Теорема}}{}
+\@ifundefined{lemma}{\newtheorem{lemma}{Лемма}}{}
+\@ifundefined{definition}{\newtheorem{definition}{Определение}}{}
+\@ifundefined{corollary}{\newtheorem{corollary}{Следствие}}{}
+\@ifundefined{proposition}{\newtheorem{proposition}{Утверждение}}{}
+\@ifundefined{remark}{\newtheorem{remark}{Замечание}}{}
+\@ifundefined{example}{\newtheorem{example}{Пример}}{}
+\makeatother
+\linespread{1}
+
+\usepackage{geometry}
+
+\geometry{paperwidth=36.1cm,paperheight=20.3cm,margin=2cm}
+
+\pagestyle{empty}
+
+\definecolor{notaeBG}{HTML}{121417}
+
+\definecolor{notaeTEXT}{HTML}{E9E6E1}
+
+\definecolor{notaeMUTED}{HTML}{A7A39C}
+
+\definecolor{notaeYELLOW}{HTML}{FFD166}
+
+\definecolor{notaeGOLD}{HTML}{E3B56B}
+
+\definecolor{notaeBLUE}{HTML}{7FB3D5}
+
+\DeclareMathSizes{36}{36}{25}{18}
+
+\DeclareMathSizes{44}{44}{31}{22}
+
+\DeclareMathSizes{56}{56}{39}{28}
+
+\pagecolor{notaeBG}
+
+\color{notaeTEXT}
+
+\begin{document}
+
+\vspace*{\fill}
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{56}{64}\selectfont Бинепрерывные полугруппы\\ и вопросы их аппроксимации}\\[0.5em]
+{\color{notaeGOLD}\rule{6.4in}{1.5pt}}\\[1.3em]
+{\color{notaeTEXT}\fontsize{34}{40}\selectfont А.~В.~Уткин}\\[0.5em]
+{\color{notaeMUTED}\fontsize{24}{29}\selectfont МИАН}\\[1.1em]
+{\color{notaeBLUE}\fontsize{26}{31}\selectfont Chernoff Approximations 2025}\\[0.4em]
+{\color{notaeMUTED}\fontsize{22}{27}\selectfont 22.11.2025}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Существуют и используются полугруппы, не являющиеся сильно непрерывными.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Существуют и используются полугруппы, не являющиеся сильно непрерывными.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Нужно работать не только в нормированных, но и в локально выпуклых пространствах.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Существуют и используются полугруппы, не являющиеся сильно непрерывными.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Нужно работать не только в нормированных, но и в локально выпуклых пространствах.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Практическая значимость:}
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Существуют и используются полугруппы, не являющиеся сильно непрерывными.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Нужно работать не только в нормированных, но и в локально выпуклых пространствах.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Практическая значимость:}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow}$\blacktriangleright$ Некорректные задачи Коши.}
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Существуют и используются полугруппы, не являющиеся сильно непрерывными.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Нужно работать не только в нормированных, но и в локально выпуклых пространствах.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Практическая значимость:}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow}$\blacktriangleright$ Некорректные задачи Коши.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow}$\blacktriangleright$ Сопряжённые полугруппы.}
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Существуют и используются полугруппы, не являющиеся сильно непрерывными.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Нужно работать не только в нормированных, но и в локально выпуклых пространствах.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Практическая значимость:}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow}$\blacktriangleright$ Некорректные задачи Коши.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow}$\blacktriangleright$ Сопряжённые полугруппы.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow}$\blacktriangleright$ Динамические системы и марковские процессы.}
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Существуют и используются полугруппы, не являющиеся сильно непрерывными.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Нужно работать не только в нормированных, но и в локально выпуклых пространствах.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Практическая значимость:}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow}$\blacktriangleright$ Некорректные задачи Коши.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow}$\blacktriangleright$ Сопряжённые полугруппы.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow}$\blacktriangleright$ Динамические системы и марковские процессы.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow}$\blacktriangleright$ Квантовая механика и квантовые каналы.}
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бидопустимые пространства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бидопустимые пространства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(X,\|\cdot\|)$ --- банахово пространство, а $\tau$ --- дополнительная топология на $X$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бидопустимые пространства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(X,\|\cdot\|)$ --- банахово пространство, а $\tau$ --- дополнительная топология на $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.1.} $\tau$ хаусдорфова, локально выпукла и $\tau\subset\tau_{\|\cdot\|}$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бидопустимые пространства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(X,\|\cdot\|)$ --- банахово пространство, а $\tau$ --- дополнительная топология на $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.1.} $\tau$ хаусдорфова, локально выпукла и $\tau\subset\tau_{\|\cdot\|}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.2.} Ограниченные по норме $\tau$-замкнутые множества секвенциально $\tau$-полны.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бидопустимые пространства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(X,\|\cdot\|)$ --- банахово пространство, а $\tau$ --- дополнительная топология на $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.1.} $\tau$ хаусдорфова, локально выпукла и $\tau\subset\tau_{\|\cdot\|}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.2.} Ограниченные по норме $\tau$-замкнутые множества секвенциально $\tau$-полны.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.3.} $(X,\tau)'$ является нормирующим для $(X,\|\cdot\|)$:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бидопустимые пространства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(X,\|\cdot\|)$ --- банахово пространство, а $\tau$ --- дополнительная топология на $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.1.} $\tau$ хаусдорфова, локально выпукла и $\tau\subset\tau_{\|\cdot\|}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.2.} Ограниченные по норме $\tau$-замкнутые множества секвенциально $\tau$-полны.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.3.} $(X,\tau)'$ является нормирующим для $(X,\|\cdot\|)$:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\|f\|=\sup\limits_{\ph\in\Phi_X}|\langle\ph,f\rangle|.$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бидопустимые пространства}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(X,\|\cdot\|)$ --- банахово пространство, а $\tau$ --- дополнительная топология на $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.1.} $\tau$ хаусдорфова, локально выпукла и $\tau\subset\tau_{\|\cdot\|}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.2.} Ограниченные по норме $\tau$-замкнутые множества секвенциально $\tau$-полны.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Bi.3.} $(X,\tau)'$ является нормирующим для $(X,\|\cdot\|)$:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\|f\|=\sup\limits_{\ph\in\Phi_X}|\langle\ph,f\rangle|.$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Здесь $\Phi_X=\{\ph\in(X,\tau)' : \|\ph\|_{X^*}\le 1\}$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Комментарии к бидопустимости}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Комментарии к бидопустимости}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Топология $\tau$ порождается семейством полунорм, непрерывных по норме.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Комментарии к бидопустимости}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Топология $\tau$ порождается семейством полунорм, непрерывных по норме.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Через $\mathcal{P}_\tau$ обозначим все непрерывные полунормы $p$ с $p(x)\le\|x\|$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Комментарии к бидопустимости}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Топология $\tau$ порождается семейством полунорм, непрерывных по норме.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Через $\mathcal{P}_\tau$ обозначим все непрерывные полунормы $p$ с $p(x)\le\|x\|$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.2 эквивалентно тому, что равномерно ограниченные $\tau$-фундаментальные последовательности сходятся в $\tau$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Комментарии к бидопустимости}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Топология $\tau$ порождается семейством полунорм, непрерывных по норме.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Через $\mathcal{P}_\tau$ обозначим все непрерывные полунормы $p$ с $p(x)\le\|x\|$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.2 эквивалентно тому, что равномерно ограниченные $\tau$-фундаментальные последовательности сходятся в $\tau$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent К Bi.3: $(X,\tau)'$ канонически вкладывается в $(X,\|\cdot\|)^*$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Комментарии к бидопустимости}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Топология $\tau$ порождается семейством полунорм, непрерывных по норме.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Через $\mathcal{P}_\tau$ обозначим все непрерывные полунормы $p$ с $p(x)\le\|x\|$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.2 эквивалентно тому, что равномерно ограниченные $\tau$-фундаментальные последовательности сходятся в $\tau$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent К Bi.3: $(X,\tau)'$ канонически вкладывается в $(X,\|\cdot\|)^*$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Всякий $\tau$-непрерывный функционал непрерывен и по норме.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример: тривиальное бидопустимое пространство}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример: тривиальное бидопустимое пространство}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 1 (тривиальный).} Пространство $(X,\|\cdot\|,\tau_{\|\cdot\|})$ бидопустимо.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример: тривиальное бидопустимое пространство}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 1 (тривиальный).} Пространство $(X,\|\cdot\|,\tau_{\|\cdot\|})$ бидопустимо.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.1 очевидно: топология нормы хаусдорфова и локально выпукла.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример: тривиальное бидопустимое пространство}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 1 (тривиальный).} Пространство $(X,\|\cdot\|,\tau_{\|\cdot\|})$ бидопустимо.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.1 очевидно: топология нормы хаусдорфова и локально выпукла.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.2 выполнено, так как $(X,\|\cdot\|)$ --- банахово.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример: тривиальное бидопустимое пространство}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 1 (тривиальный).} Пространство $(X,\|\cdot\|,\tau_{\|\cdot\|})$ бидопустимо.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.1 очевидно: топология нормы хаусдорфова и локально выпукла.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.2 выполнено, так как $(X,\|\cdot\|)$ --- банахово.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.3 следует из стандартного следствия теоремы Хана--Банаха.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример: тривиальное бидопустимое пространство}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 1 (тривиальный).} Пространство $(X,\|\cdot\|,\tau_{\|\cdot\|})$ бидопустимо.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.1 очевидно: топология нормы хаусдорфова и локально выпукла.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.2 выполнено, так как $(X,\|\cdot\|)$ --- банахово.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.3 следует из стандартного следствия теоремы Хана--Банаха.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Итак, бидопустимые пространства обобщают банаховы.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 2: слабая топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 2: слабая топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 2.} Пусть $X$ --- банахово пространство, $\tau_w$ --- слабая топология.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 2: слабая топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 2.} Пусть $X$ --- банахово пространство, $\tau_w$ --- слабая топология.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Тогда $(X,\|\cdot\|,\tau_w)$ бидопустимо.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 2: слабая топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 2.} Пусть $X$ --- банахово пространство, $\tau_w$ --- слабая топология.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Тогда $(X,\|\cdot\|,\tau_w)$ бидопустимо.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.1: $\tau_w$ хаусдорфова, локально выпукла и слабее топологии нормы.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 2: слабая топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 2.} Пусть $X$ --- банахово пространство, $\tau_w$ --- слабая топология.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Тогда $(X,\|\cdot\|,\tau_w)$ бидопустимо.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.1: $\tau_w$ хаусдорфова, локально выпукла и слабее топологии нормы.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.2: всякая ограниченная слабо фундаментальная последовательность слабо сходится.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 2: слабая топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 2.} Пусть $X$ --- банахово пространство, $\tau_w$ --- слабая топология.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Тогда $(X,\|\cdot\|,\tau_w)$ бидопустимо.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.1: $\tau_w$ хаусдорфова, локально выпукла и слабее топологии нормы.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.2: всякая ограниченная слабо фундаментальная последовательность слабо сходится.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.3: норма восстанавливается по единичному шару:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 2: слабая топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 2.} Пусть $X$ --- банахово пространство, $\tau_w$ --- слабая топология.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Тогда $(X,\|\cdot\|,\tau_w)$ бидопустимо.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.1: $\tau_w$ хаусдорфова, локально выпукла и слабее топологии нормы.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.2: всякая ограниченная слабо фундаментальная последовательность слабо сходится.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.3: норма восстанавливается по единичному шару:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\|x\|=\sup\limits_{\ph\in B_1^*}|\langle \ph, x \rangle|.$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 3: пространство непрерывных функций}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 3: пространство непрерывных функций}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 3.} Пусть $E$ --- банахово пространство, $X=C_b(E)$ с супремум-нормой.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 3: пространство непрерывных функций}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 3.} Пусть $E$ --- банахово пространство, $X=C_b(E)$ с супремум-нормой.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Пусть $\tau_b$ --- топология сходимости на ограниченных подмножествах $E$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 3: пространство непрерывных функций}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 3.} Пусть $E$ --- банахово пространство, $X=C_b(E)$ с супремум-нормой.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Пусть $\tau_b$ --- топология сходимости на ограниченных подмножествах $E$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.1 проверяется легко.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 3: пространство непрерывных функций}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 3.} Пусть $E$ --- банахово пространство, $X=C_b(E)$ с супремум-нормой.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Пусть $\tau_b$ --- топология сходимости на ограниченных подмножествах $E$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.1 проверяется легко.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.3 следует из того, что $\delta$-функционалы $\tau_b$-непрерывны.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Пример 3: пространство непрерывных функций}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Пример 3.} Пусть $E$ --- банахово пространство, $X=C_b(E)$ с супремум-нормой.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Пусть $\tau_b$ --- топология сходимости на ограниченных подмножествах $E$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.1 проверяется легко.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Bi.3 следует из того, что $\delta$-функционалы $\tau_b$-непрерывны.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Проверка Bi.2 --- несложное упражнение.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бисходимость и биплотность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бисходимость и биплотность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(X,\|\cdot\|,\tau)$ --- бидопустимое пространство.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бисходимость и биплотность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(X,\|\cdot\|,\tau)$ --- бидопустимое пространство.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Последовательность $(x_n)$ бисходится к $x$, если она $\|\cdot\|$-ограничена и $\tau$-сходится к $x$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бисходимость и биплотность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(X,\|\cdot\|,\tau)$ --- бидопустимое пространство.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Последовательность $(x_n)$ бисходится к $x$, если она $\|\cdot\|$-ограничена и $\tau$-сходится к $x$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Подпространство $Y\subset X$ биплотно, если каждый $x\in X$\\ есть бипредел последовательности из $Y$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бисходимость и биплотность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(X,\|\cdot\|,\tau)$ --- бидопустимое пространство.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Последовательность $(x_n)$ бисходится к $x$, если она $\|\cdot\|$-ограничена и $\tau$-сходится к $x$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Подпространство $Y\subset X$ биплотно, если каждый $x\in X$\\ есть бипредел последовательности из $Y$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Например, $\mathcal{S}(\R)$ биплотно в $C_b(\R)$ в топологии примера 3.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.3}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.3}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(x_n)$ бисходится к $x$. Тогда
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.3}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(x_n)$ бисходится к $x$. Тогда
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\|x\|\le\sup\limits_{n\in\N}\|x_n\|.$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.3}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(x_n)$ бисходится к $x$. Тогда
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\|x\|\le\sup\limits_{n\in\N}\|x_n\|.$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Действительно, $\|x\|=\sup\limits_{\ph\in\Phi_X}\lim_n|\langle\ph,x_n\rangle|\le\varlimsup\limits_n\|x_n\|$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.3}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(x_n)$ бисходится к $x$. Тогда
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\|x\|\le\sup\limits_{n\in\N}\|x_n\|.$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Действительно, $\|x\|=\sup\limits_{\ph\in\Phi_X}\lim_n|\langle\ph,x_n\rangle|\le\varlimsup\limits_n\|x_n\|$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Если $C=\sup\limits_n\|S_n\|<\infty$ и $S_n x$ бисходится к $Sx$ для всех $x$,
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.3}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(x_n)$ бисходится к $x$. Тогда
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\|x\|\le\sup\limits_{n\in\N}\|x_n\|.$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Действительно, $\|x\|=\sup\limits_{\ph\in\Phi_X}\lim_n|\langle\ph,x_n\rangle|\le\varlimsup\limits_n\|x_n\|$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Если $C=\sup\limits_n\|S_n\|<\infty$ и $S_n x$ бисходится к $Sx$ для всех $x$,
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent то $\|S\|\le C$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.2}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.2}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $x(\cdot):[0,T]\to X$ бинепрерывна:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.2}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $x(\cdot):[0,T]\to X$ бинепрерывна:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $$\operatorname{bi}\lim\limits_{t\to t_0}x(t)=x(t_0)\quad\text{для всех }t_0\in[0,T].$$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.2}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $x(\cdot):[0,T]\to X$ бинепрерывна:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $$\operatorname{bi}\lim\limits_{t\to t_0}x(t)=x(t_0)\quad\text{для всех }t_0\in[0,T].$$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Условие Bi.2 позволяет определить интеграл Римана
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.2}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $x(\cdot):[0,T]\to X$ бинепрерывна:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $$\operatorname{bi}\lim\limits_{t\to t_0}x(t)=x(t_0)\quad\text{для всех }t_0\in[0,T].$$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Условие Bi.2 позволяет определить интеграл Римана
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\int_0^T x(t)\,dt=\operatorname{bi}\lim\limits_{n\to\infty}\sum\limits_{k=1}^n x\left(\frac{kT}{n}\right)\ \dfrac{T}{n}.$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Роль условия Bi.2}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $x(\cdot):[0,T]\to X$ бинепрерывна:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $$\operatorname{bi}\lim\limits_{t\to t_0}x(t)=x(t_0)\quad\text{для всех }t_0\in[0,T].$$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Условие Bi.2 позволяет определить интеграл Римана
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\int_0^T x(t)\,dt=\operatorname{bi}\lim\limits_{n\to\infty}\sum\limits_{k=1}^n x\left(\frac{kT}{n}\right)\ \dfrac{T}{n}.$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Римановы суммы равномерно ограничены по норме и $\tau$-фундаментальны.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Контрпример: поточечная топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Контрпример: поточечная топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Вопрос.} Бидопустимо ли $X=C[-1,1]$ с супремум-нормой и топологией $\tau_p$ поточечной сходимости?
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Контрпример: поточечная топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Вопрос.} Бидопустимо ли $X=C[-1,1]$ с супремум-нормой и топологией $\tau_p$ поточечной сходимости?
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Ответ:} нет.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Контрпример: поточечная топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Вопрос.} Бидопустимо ли $X=C[-1,1]$ с супремум-нормой и топологией $\tau_p$ поточечной сходимости?
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Ответ:} нет.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Рассмотрим $f_n(y)=\arctan(ny)$. Тогда $\|f_n\|\le 1$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Контрпример: поточечная топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Вопрос.} Бидопустимо ли $X=C[-1,1]$ с супремум-нормой и топологией $\tau_p$ поточечной сходимости?
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Ответ:} нет.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Рассмотрим $f_n(y)=\arctan(ny)$. Тогда $\|f_n\|\le 1$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent В каждой точке $y\in[-1,1]$ последовательность $(f_n(y))$ фундаментальна, значит $\tau_p$-фундаментальна.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Контрпример: поточечная топология}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Вопрос.} Бидопустимо ли $X=C[-1,1]$ с супремум-нормой и топологией $\tau_p$ поточечной сходимости?
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Ответ:} нет.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Рассмотрим $f_n(y)=\arctan(ny)$. Тогда $\|f_n\|\le 1$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent В каждой точке $y\in[-1,1]$ последовательность $(f_n(y))$ фундаментальна, значит $\tau_p$-фундаментальна.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Но её поточечный предел не является непрерывным на $[-1,1]$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бинепрерывные полугруппы: определение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бинепрерывные полугруппы: определение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Полугруппа $(T_t)_{t\ge0}$ на бидопустимом пространстве называется бинепрерывной, если:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бинепрерывные полугруппы: определение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Полугруппа $(T_t)_{t\ge0}$ на бидопустимом пространстве называется бинепрерывной, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $T_t\in\mathcal{L}(X,\|\cdot\|)$ и $\|T_t\|\le Me^{wt}$ для некоторых $M\ge1$, $w\in\R$;
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бинепрерывные полугруппы: определение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Полугруппа $(T_t)_{t\ge0}$ на бидопустимом пространстве называется бинепрерывной, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $T_t\in\mathcal{L}(X,\|\cdot\|)$ и $\|T_t\|\le Me^{wt}$ для некоторых $M\ge1$, $w\in\R$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (ii) $\operatorname{bi}\lim\limits_{t\to0+}T_t x=x$ для каждого $x\in X$;
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бинепрерывные полугруппы: определение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Полугруппа $(T_t)_{t\ge0}$ на бидопустимом пространстве называется бинепрерывной, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $T_t\in\mathcal{L}(X,\|\cdot\|)$ и $\|T_t\|\le Me^{wt}$ для некоторых $M\ge1$, $w\in\R$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (ii) $\operatorname{bi}\lim\limits_{t\to0+}T_t x=x$ для каждого $x\in X$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (iii) если $(x_n)_n$ бисходится к $x$, то $(T_t x_n)_n$ бисходится к $T_t x$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бинепрерывные полугруппы: определение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Полугруппа $(T_t)_{t\ge0}$ на бидопустимом пространстве называется бинепрерывной, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $T_t\in\mathcal{L}(X,\|\cdot\|)$ и $\|T_t\|\le Me^{wt}$ для некоторых $M\ge1$, $w\in\R$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (ii) $\operatorname{bi}\lim\limits_{t\to0+}T_t x=x$ для каждого $x\in X$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (iii) если $(x_n)_n$ бисходится к $x$, то $(T_t x_n)_n$ бисходится к $T_t x$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent и сходимость равномерна по $t$ на компактных подмножествах $\R_+$:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Бинепрерывные полугруппы: определение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Полугруппа $(T_t)_{t\ge0}$ на бидопустимом пространстве называется бинепрерывной, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $T_t\in\mathcal{L}(X,\|\cdot\|)$ и $\|T_t\|\le Me^{wt}$ для некоторых $M\ge1$, $w\in\R$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (ii) $\operatorname{bi}\lim\limits_{t\to0+}T_t x=x$ для каждого $x\in X$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (iii) если $(x_n)_n$ бисходится к $x$, то $(T_t x_n)_n$ бисходится к $T_t x$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent и сходимость равномерна по $t$ на компактных подмножествах $\R_+$:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\sup\limits_{t\in[0,T]}p\bigl(T_t(x_n-x)\bigr)\to0\quad(n\to\infty).$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Марковские полугруппы.} На $B_b(\R)$ с супремум-нормой оператор $T$ называется марковским, если
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Марковские полугруппы.} На $B_b(\R)$ с супремум-нормой оператор $T$ называется марковским, если
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $Tf\ge0$ при $f\ge0$ и $T1=1$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Марковские полугруппы.} На $B_b(\R)$ с супремум-нормой оператор $T$ называется марковским, если
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $Tf\ge0$ при $f\ge0$ и $T1=1$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Тогда $0\le|Tf|\le T|f|\le\|f\|$, значит, $T$ ограничен.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Марковские полугруппы.} На $B_b(\R)$ с супремум-нормой оператор $T$ называется марковским, если
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $Tf\ge0$ при $f\ge0$ и $T1=1$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Тогда $0\le|Tf|\le T|f|\le\|f\|$, значит, $T$ ограничен.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Для однородного марковского процесса $(X_t)$ с переходными вероятностями $P_t(dy|x)$:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Марковские полугруппы.} На $B_b(\R)$ с супремум-нормой оператор $T$ называется марковским, если
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $Tf\ge0$ при $f\ge0$ и $T1=1$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Тогда $0\le|Tf|\le T|f|\le\|f\|$, значит, $T$ ограничен.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Для однородного марковского процесса $(X_t)$ с переходными вероятностями $P_t(dy|x)$:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $(T_t f)(x)=\E[f(X_t)\mid X_0=x]=\int f(y)\,P_t(dy|x).$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Разрывные марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Разрывные марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа сдвига:} $(T_t f)(y)=f(y+t)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Разрывные марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа сдвига:} $(T_t f)(y)=f(y+t)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Не сильно непрерывна на $B_b(\R)$ и $C_b(\R)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Разрывные марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа сдвига:} $(T_t f)(y)=f(y+t)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Не сильно непрерывна на $B_b(\R)$ и $C_b(\R)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Сильно непрерывна на $\Lp_p(\R)$, $UC_b(\R)$ и $C_0(\R)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Разрывные марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа сдвига:} $(T_t f)(y)=f(y+t)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Не сильно непрерывна на $B_b(\R)$ и $C_b(\R)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Сильно непрерывна на $\Lp_p(\R)$, $UC_b(\R)$ и $C_0(\R)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа теплопроводности:} $(T_t f)(y)=\int f(y+\sqrt{t}u)\,d\gamma(u)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Разрывные марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа сдвига:} $(T_t f)(y)=f(y+t)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Не сильно непрерывна на $B_b(\R)$ и $C_b(\R)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Сильно непрерывна на $\Lp_p(\R)$, $UC_b(\R)$ и $C_0(\R)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа теплопроводности:} $(T_t f)(y)=\int f(y+\sqrt{t}u)\,d\gamma(u)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Не сильно непрерывна на $B_b(\R)$ и $C_b(\R)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Разрывные марковские полугруппы}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа сдвига:} $(T_t f)(y)=f(y+t)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Не сильно непрерывна на $B_b(\R)$ и $C_b(\R)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Сильно непрерывна на $\Lp_p(\R)$, $UC_b(\R)$ и $C_0(\R)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа теплопроводности:} $(T_t f)(y)=\int f(y+\sqrt{t}u)\,d\gamma(u)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Не сильно непрерывна на $B_b(\R)$ и $C_b(\R)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Сильно непрерывна на $\Lp_p(\R)$, $UC_b(\R)$ и $C_0(\R)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Полугруппа Орнштейна--Уленбека}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Полугруппа Орнштейна--Уленбека}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа Орнштейна--Уленбека:}
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Полугруппа Орнштейна--Уленбека}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа Орнштейна--Уленбека:}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $(T_t f)(y)=\int f(e^{-t}y+\sqrt{1-e^{-2t}}u)\,d\gamma(u).$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Полугруппа Орнштейна--Уленбека}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа Орнштейна--Уленбека:}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $(T_t f)(y)=\int f(e^{-t}y+\sqrt{1-e^{-2t}}u)\,d\gamma(u).$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Не сильно непрерывна на $B_b(\R)$ и $C_b(\R)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Полугруппа Орнштейна--Уленбека}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Полугруппа Орнштейна--Уленбека:}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $(T_t f)(y)=\int f(e^{-t}y+\sqrt{1-e^{-2t}}u)\,d\gamma(u).$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Не сильно непрерывна на $B_b(\R)$ и $C_b(\R)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Сильно непрерывна на $\Lp_p(\R)$, $UC_b(\R)$ и $C_0(\R)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Свойство Феллера и его нарушение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Свойство Феллера и его нарушение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Свойство Феллера.} Марковская полугруппа обладает свойством Феллера,\\ если $C_0(\R)$ (или $C_b(\R)$) инвариантно.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Свойство Феллера и его нарушение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Свойство Феллера.} Марковская полугруппа обладает свойством Феллера,\\ если $C_0(\R)$ (или $C_b(\R)$) инвариантно.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Примеры выше сохраняют $C_0(\R)$ и сильно непрерывны на нём.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Свойство Феллера и его нарушение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Свойство Феллера.} Марковская полугруппа обладает свойством Феллера,\\ если $C_0(\R)$ (или $C_b(\R)$) инвариантно.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Примеры выше сохраняют $C_0(\R)$ и сильно непрерывны на нём.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Но существуют явные контрпримеры.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Свойство Феллера и его нарушение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Свойство Феллера.} Марковская полугруппа обладает свойством Феллера,\\ если $C_0(\R)$ (или $C_b(\R)$) инвариантно.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Примеры выше сохраняют $C_0(\R)$ и сильно непрерывны на нём.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Но существуют явные контрпримеры.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent На $\R_+$ рассмотрим $x_y(t)=\frac{y}{1+ty}$ и $(T_t f)(y)=f(x_y(t))$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Свойство Феллера и его нарушение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Свойство Феллера.} Марковская полугруппа обладает свойством Феллера,\\ если $C_0(\R)$ (или $C_b(\R)$) инвариантно.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Примеры выше сохраняют $C_0(\R)$ и сильно непрерывны на нём.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Но существуют явные контрпримеры.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent На $\R_+$ рассмотрим $x_y(t)=\frac{y}{1+ty}$ и $(T_t f)(y)=f(x_y(t))$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Эта полугруппа не сохраняет $C_0(\R_+)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Свойство Феллера и его нарушение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \textbf{Свойство Феллера.} Марковская полугруппа обладает свойством Феллера,\\ если $C_0(\R)$ (или $C_b(\R)$) инвариантно.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Примеры выше сохраняют $C_0(\R)$ и сильно непрерывны на нём.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Но существуют явные контрпримеры.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent На $\R_+$ рассмотрим $x_y(t)=\frac{y}{1+ty}$ и $(T_t f)(y)=f(x_y(t))$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Эта полугруппа не сохраняет $C_0(\R_+)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $C_b(\R_+)$ инвариантно, но на нём полугруппа не является сильно непрерывной.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Что делать?}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Что делать?}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Использовать теорию бинепрерывных полугрупп.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Что делать?}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Использовать теорию бинепрерывных полугрупп.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Практические приложения:}
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Что делать?}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Использовать теорию бинепрерывных полугрупп.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Практические приложения:}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow} $\blacktriangleright$ Полугруппы, порождённые потоками на $C_b(E)$.}
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Что делать?}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Использовать теорию бинепрерывных полугрупп.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Практические приложения:}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow} $\blacktriangleright$ Полугруппы, порождённые потоками на $C_b(E)$.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow} $\blacktriangleright$ Марковские полугруппы случайных процессов на $C_b(E)$.}
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Что делать?}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Использовать теорию бинепрерывных полугрупп.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Практические приложения:}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow} $\blacktriangleright$ Полугруппы, порождённые потоками на $C_b(E)$.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow} $\blacktriangleright$ Марковские полугруппы случайных процессов на $C_b(E)$.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow} $\blacktriangleright$ Реализованные и сопряжённые полугруппы.}
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Что делать?}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Использовать теорию бинепрерывных полугрупп.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Практические приложения:}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow} $\blacktriangleright$ Полугруппы, порождённые потоками на $C_b(E)$.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow} $\blacktriangleright$ Марковские полугруппы случайных процессов на $C_b(E)$.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow} $\blacktriangleright$ Реализованные и сопряжённые полугруппы.}
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent {\color{yellow} $\blacktriangleright$ Квантовые динамические полугруппы на $\mathcal{B}(\Hilb)$ в слабой$^*$-топологии.}
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Генератор и резольвента}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Генератор и резольвента}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Для бинепрерывной полугруппы $(T_t)_{t\ge0}$ генератор есть $(A,D(A))$:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Генератор и резольвента}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Для бинепрерывной полугруппы $(T_t)_{t\ge0}$ генератор есть $(A,D(A))$:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $D(A)=\Bigl\{x\in X:\ \exists\operatorname{bi}\lim\limits_{t\to0+}\frac{T_t x-x}{t}=:Ax\Bigr\}.$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Генератор и резольвента}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Для бинепрерывной полугруппы $(T_t)_{t\ge0}$ генератор есть $(A,D(A))$:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $D(A)=\Bigl\{x\in X:\ \exists\operatorname{bi}\lim\limits_{t\to0+}\frac{T_t x-x}{t}=:Ax\Bigr\}.$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent При $\lambda>w$ резольвента имеет вид
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Генератор и резольвента}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Для бинепрерывной полугруппы $(T_t)_{t\ge0}$ генератор есть $(A,D(A))$:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $D(A)=\Bigl\{x\in X:\ \exists\operatorname{bi}\lim\limits_{t\to0+}\frac{T_t x-x}{t}=:Ax\Bigr\}.$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent При $\lambda>w$ резольвента имеет вид
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $R(\lambda)x=\mathcal{R}\text{-}\int_0^{+\infty}e^{-\lambda t}T_t x\,dt.$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Основы теории бинепрерывных полугрупп}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Основы теории бинепрерывных полугрупп}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Биплотность и бизамкнутость генератора.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Основы теории бинепрерывных полугрупп}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Биплотность и бизамкнутость генератора.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Совпадение резольвенты полугруппы и резольвенты генератора.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Основы теории бинепрерывных полугрупп}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Биплотность и бизамкнутость генератора.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Совпадение резольвенты полугруппы и резольвенты генератора.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Обобщение теоремы Хилле--Иосиды.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Основы теории бинепрерывных полугрупп}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Биплотность и бизамкнутость генератора.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Совпадение резольвенты полугруппы и резольвенты генератора.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Обобщение теоремы Хилле--Иосиды.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Обобщения первой и второй теорем Троттера--Като и теоремы Чернова.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Основы теории бинепрерывных полугрупп}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Биплотность и бизамкнутость генератора.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Совпадение резольвенты полугруппы и резольвенты генератора.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Обобщение теоремы Хилле--Иосиды.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Обобщения первой и второй теорем Троттера--Като и теоремы Чернова.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Теорема.} Если $X$ рефлексивно, то любая бинепрерывная полугруппа\\ на $X$ автоматически сильно непрерывна.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont К теореме Чернова: равностепенная бинепрерывность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont К теореме Чернова: равностепенная бинепрерывность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Семейство $(S_\alpha)_\alpha\subset\mathcal{L}(X)$ называется равностепенно бинепрерывным, если:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont К теореме Чернова: равностепенная бинепрерывность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Семейство $(S_\alpha)_\alpha\subset\mathcal{L}(X)$ называется равностепенно бинепрерывным, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent для всякой $(x_n)$, бисходящейся к $x$, $\operatorname{bi}\lim\limits_n S_\alpha x_n=x$ равномерно по $\alpha$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont К теореме Чернова: равностепенная бинепрерывность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Семейство $(S_\alpha)_\alpha\subset\mathcal{L}(X)$ называется равностепенно бинепрерывным, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent для всякой $(x_n)$, бисходящейся к $x$, $\operatorname{bi}\lim\limits_n S_\alpha x_n=x$ равномерно по $\alpha$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Пусть $F_t:\R_+\to\mathcal{L}(X)$. Семейство $\{(e^{-wt}F_t)^m\}$ локально равномерно равностепенно бинепрерывно, если:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont К теореме Чернова: равностепенная бинепрерывность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Семейство $(S_\alpha)_\alpha\subset\mathcal{L}(X)$ называется равностепенно бинепрерывным, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent для всякой $(x_n)$, бисходящейся к $x$, $\operatorname{bi}\lim\limits_n S_\alpha x_n=x$ равномерно по $\alpha$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Пусть $F_t:\R_+\to\mathcal{L}(X)$. Семейство $\{(e^{-wt}F_t)^m\}$ локально равномерно равностепенно бинепрерывно, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent для всякой $(x_n)$, бисходящейся к нулю,
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont К теореме Чернова: равностепенная бинепрерывность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Семейство $(S_\alpha)_\alpha\subset\mathcal{L}(X)$ называется равностепенно бинепрерывным, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent для всякой $(x_n)$, бисходящейся к $x$, $\operatorname{bi}\lim\limits_n S_\alpha x_n=x$ равномерно по $\alpha$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Пусть $F_t:\R_+\to\mathcal{L}(X)$. Семейство $\{(e^{-wt}F_t)^m\}$ локально равномерно равностепенно бинепрерывно, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent для всякой $(x_n)$, бисходящейся к нулю,
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\tau\lim\limits_{n\to\infty}(e^{-wt}F_t)^m x_n=0,$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont К теореме Чернова: равностепенная бинепрерывность}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Семейство $(S_\alpha)_\alpha\subset\mathcal{L}(X)$ называется равностепенно бинепрерывным, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent для всякой $(x_n)$, бисходящейся к $x$, $\operatorname{bi}\lim\limits_n S_\alpha x_n=x$ равномерно по $\alpha$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Пусть $F_t:\R_+\to\mathcal{L}(X)$. Семейство $\{(e^{-wt}F_t)^m\}$ локально равномерно равностепенно бинепрерывно, если:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent для всякой $(x_n)$, бисходящейся к нулю,
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\tau\lim\limits_{n\to\infty}(e^{-wt}F_t)^m x_n=0,$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent равномерно по $t$ на компактах из $\R_+$ и по $m\in\N$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Чернова: предположения}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Чернова: предположения}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $F:[0,+\infty)\to\mathcal{L}(X)$ удовлетворяет условиям:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Чернова: предположения}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $F:[0,+\infty)\to\mathcal{L}(X)$ удовлетворяет условиям:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $F_0=I$ и $\|F_t^m\|\le Me^{mwt}$ для некоторых $M\ge1$, $w\in\R$;
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Чернова: предположения}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $F:[0,+\infty)\to\mathcal{L}(X)$ удовлетворяет условиям:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $F_0=I$ и $\|F_t^m\|\le Me^{mwt}$ для некоторых $M\ge1$, $w\in\R$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (ii) $\{e^{-mwt}(F_t)^m\}_{t\ge0,\ m\in\N}$ локально равномерно равностепенно бинепрерывно;
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Чернова: предположения}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $F:[0,+\infty)\to\mathcal{L}(X)$ удовлетворяет условиям:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $F_0=I$ и $\|F_t^m\|\le Me^{mwt}$ для некоторых $M\ge1$, $w\in\R$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (ii) $\{e^{-mwt}(F_t)^m\}_{t\ge0,\ m\in\N}$ локально равномерно равностепенно бинепрерывно;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (iii) $\operatorname{bi}\lim\limits_{t\to0}\frac{F_t x-x}{t}=Lx$ на биплотном подмножестве $\mathcal{D}\subset X$;
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Чернова: предположения}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $F:[0,+\infty)\to\mathcal{L}(X)$ удовлетворяет условиям:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $F_0=I$ и $\|F_t^m\|\le Me^{mwt}$ для некоторых $M\ge1$, $w\in\R$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (ii) $\{e^{-mwt}(F_t)^m\}_{t\ge0,\ m\in\N}$ локально равномерно равностепенно бинепрерывно;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (iii) $\operatorname{bi}\lim\limits_{t\to0}\frac{F_t x-x}{t}=Lx$ на биплотном подмножестве $\mathcal{D}\subset X$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent и $(\lambda_0-L)(\mathcal{D})$ биплотно при некотором $\lambda_0>w$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Чернова: заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Чернова: заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Тогда бизамыкание $L$ есть генератор бинепрерывной полугруппы $(T_t)_{t\ge0}$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Чернова: заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Тогда бизамыкание $L$ есть генератор бинепрерывной полугруппы $(T_t)_{t\ge0}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Более того, для каждого $x\in X$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Чернова: заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Тогда бизамыкание $L$ есть генератор бинепрерывной полугруппы $(T_t)_{t\ge0}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Более того, для каждого $x\in X$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $T_t x=\operatorname{bi}\lim\limits_{n\to\infty}(F_{t/n})^n x,$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Чернова: заключение}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Тогда бизамыкание $L$ есть генератор бинепрерывной полугруппы $(T_t)_{t\ge0}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Более того, для каждого $x\in X$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $T_t x=\operatorname{bi}\lim\limits_{n\to\infty}(F_{t/n})^n x,$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent равномерно на компактных промежутках из $\R_+$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Ослабление условий Чернова}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Ослабление условий Чернова}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Теорема Чернова требует, чтобы $\mathcal{D}$ и $(\lambda-L)\mathcal{D}$ были биплотны в $X$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Ослабление условий Чернова}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Теорема Чернова требует, чтобы $\mathcal{D}$ и $(\lambda-L)\mathcal{D}$ были биплотны в $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Сохранится ли заключение, если они не биплотны,
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Ослабление условий Чернова}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Теорема Чернова требует, чтобы $\mathcal{D}$ и $(\lambda-L)\mathcal{D}$ были биплотны в $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Сохранится ли заключение, если они не биплотны,
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent но \textbf{если $X$ --- минимальное бизамкнутое подпространство, их содержащее}?
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Ослабление условий Чернова}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Теорема Чернова требует, чтобы $\mathcal{D}$ и $(\lambda-L)\mathcal{D}$ были биплотны в $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Сохранится ли заключение, если они не биплотны,
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent но \textbf{если $X$ --- минимальное бизамкнутое подпространство, их содержащее}?
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Если $\tau$ метризуема, вопрос тривиален.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Ослабление условий Чернова}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Теорема Чернова требует, чтобы $\mathcal{D}$ и $(\lambda-L)\mathcal{D}$ были биплотны в $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Сохранится ли заключение, если они не биплотны,
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent но \textbf{если $X$ --- минимальное бизамкнутое подпространство, их содержащее}?
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Если $\tau$ метризуема, вопрос тривиален.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent В общем случае множество бипредельных точек подпространства может не быть бизамкнутым.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Ослабление условий Чернова}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Теорема Чернова требует, чтобы $\mathcal{D}$ и $(\lambda-L)\mathcal{D}$ были биплотны в $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Сохранится ли заключение, если они не биплотны,
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent но \textbf{если $X$ --- минимальное бизамкнутое подпространство, их содержащее}?
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Если $\tau$ метризуема, вопрос тривиален.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent В общем случае множество бипредельных точек подпространства может не быть бизамкнутым.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Минимальное бизамкнутое подпространство может быть строго больше множества бипредельных точек.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Нужно, когда область определения $L=F'_0$ не биплотна в $X$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Нужно, когда область определения $L=F'_0$ не биплотна в $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Цель: найти максимальное бизамкнутое подпространство $Y\subset X$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Мотивация}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Нужно, когда область определения $L=F'_0$ не биплотна в $X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Цель: найти максимальное бизамкнутое подпространство $Y\subset X$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent На $Y$ итерации Чернова $(F_{t/n}^n)_{n\in\N}$ должны приближать бинепрерывную полугруппу.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Возможные идеи}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Возможные идеи}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent 1) Попытаться видоизменить теорему Троттера--Като.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Возможные идеи}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent 1) Попытаться видоизменить теорему Троттера--Като.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent 2) Построить другую норму $|||\cdot|||$ на подпространстве $Y$, содержащем $\mathcal{D}$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Возможные идеи}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent 1) Попытаться видоизменить теорему Троттера--Като.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent 2) Построить другую норму $|||\cdot|||$ на подпространстве $Y$, содержащем $\mathcal{D}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent 3) Потребовать согласованности с $(X,|||\cdot|||,\tau)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 1: Возможные идеи}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent 1) Попытаться видоизменить теорему Троттера--Като.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent 2) Построить другую норму $|||\cdot|||$ на подпространстве $Y$, содержащем $\mathcal{D}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent 3) Потребовать согласованности с $(X,|||\cdot|||,\tau)$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent 4) И сделать $\mathcal{D}$ биплотным в $(Y,|||\cdot|||,\tau)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 2: Аппроксимации резольвенты}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 2: Аппроксимации резольвенты}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(F_t)_{t\ge0}$ --- функция Чернова для $(T_t)_{t\ge0}$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 2: Аппроксимации резольвенты}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(F_t)_{t\ge0}$ --- функция Чернова для $(T_t)_{t\ge0}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent При каких условиях верно, что для всех $x\in X$ и $\lambda>\lambda_0$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 2: Аппроксимации резольвенты}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(F_t)_{t\ge0}$ --- функция Чернова для $(T_t)_{t\ge0}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent При каких условиях верно, что для всех $x\in X$ и $\lambda>\lambda_0$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\operatorname{bi}\lim\limits_{n\to\infty}\int_0^{+\infty}e^{-\lambda t}F_{t/n}^n x\,dt=R(\lambda)x?$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 2: Аппроксимации резольвенты}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(F_t)_{t\ge0}$ --- функция Чернова для $(T_t)_{t\ge0}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent При каких условиях верно, что для всех $x\in X$ и $\lambda>\lambda_0$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\operatorname{bi}\lim\limits_{n\to\infty}\int_0^{+\infty}e^{-\lambda t}F_{t/n}^n x\,dt=R(\lambda)x?$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Здесь $R(\lambda)$ --- резольвента полугруппы $(T_t)_{t\ge0}$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 2: Аппроксимации резольвенты}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $(F_t)_{t\ge0}$ --- функция Чернова для $(T_t)_{t\ge0}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent При каких условиях верно, что для всех $x\in X$ и $\lambda>\lambda_0$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\operatorname{bi}\lim\limits_{n\to\infty}\int_0^{+\infty}e^{-\lambda t}F_{t/n}^n x\,dt=R(\lambda)x?$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Здесь $R(\lambda)$ --- резольвента полугруппы $(T_t)_{t\ge0}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Мотивация:} вычисление резольвенты, когда явной формулы для полугруппы нет.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 3: Скорость сходимости}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 3: Скорость сходимости}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Обобщить теорему Галкина--Ремизова о скорости на бинепрерывные полугруппы.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 3: Скорость сходимости}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Обобщить теорему Галкина--Ремизова о скорости на бинепрерывные полугруппы.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent То есть оценить $\|F_{t/n}^n x-T_t x\|$ в бинепрерывных предположениях.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 3: Скорость сходимости}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Обобщить теорему Галкина--Ремизова о скорости на бинепрерывные полугруппы.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent То есть оценить $\|F_{t/n}^n x-T_t x\|$ в бинепрерывных предположениях.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Мотивация:} построение быстро сходящихся итераций Чернова.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Вопрос 3: Скорость сходимости}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Обобщить теорему Галкина--Ремизова о скорости на бинепрерывные полугруппы.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent То есть оценить $\|F_{t/n}^n x-T_t x\|$ в бинепрерывных предположениях.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \textbf{Мотивация:} построение быстро сходящихся итераций Чернова.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Основная цель --- полугруппы квантовых каналов на $\mathcal{B}(\Hilb)$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: постановка}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: постановка}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $F$ --- банахово пространство, $(e^{tL})_{t\ge0}$ --- $C_0$-полугруппа на $F$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: постановка}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $F$ --- банахово пространство, $(e^{tL})_{t\ge0}$ --- $C_0$-полугруппа на $F$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Зафиксируем $T>0$. Предположим:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: постановка}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $F$ --- банахово пространство, $(e^{tL})_{t\ge0}$ --- $C_0$-полугруппа на $F$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Зафиксируем $T>0$. Предположим:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $\|e^{tL}\|\le M_1e^{wt}$ для всех $t\in[0,T]$, где $M_1\ge1$, $w\ge0$;
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: постановка}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $F$ --- банахово пространство, $(e^{tL})_{t\ge0}$ --- $C_0$-полугруппа на $F$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Зафиксируем $T>0$. Предположим:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $\|e^{tL}\|\le M_1e^{wt}$ для всех $t\in[0,T]$, где $M_1\ge1$, $w\ge0$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (ii) $S:(0,T]\to\mathcal{L}(F)$ и $\|S(t)^k\|\le M_2e^{kwt}$ для всех $k\in\N$;
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: постановка}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $F$ --- банахово пространство, $(e^{tL})_{t\ge0}$ --- $C_0$-полугруппа на $F$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Зафиксируем $T>0$. Предположим:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $\|e^{tL}\|\le M_1e^{wt}$ для всех $t\in[0,T]$, где $M_1\ge1$, $w\ge0$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (ii) $S:(0,T]\to\mathcal{L}(F)$ и $\|S(t)^k\|\le M_2e^{kwt}$ для всех $k\in\N$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (iii) $m\in\N_0$, $p\in\N$ и $D\subset D(L^{m+p})$ инвариантно относительно $(e^{tL})$;
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: постановка}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Пусть $F$ --- банахово пространство, $(e^{tL})_{t\ge0}$ --- $C_0$-полугруппа на $F$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Зафиксируем $T>0$. Предположим:
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (i) $\|e^{tL}\|\le M_1e^{wt}$ для всех $t\in[0,T]$, где $M_1\ge1$, $w\ge0$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (ii) $S:(0,T]\to\mathcal{L}(F)$ и $\|S(t)^k\|\le M_2e^{kwt}$ для всех $k\in\N$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (iii) $m\in\N_0$, $p\in\N$ и $D\subset D(L^{m+p})$ инвариантно относительно $(e^{tL})$;
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent и существуют функции $K_j:(0,T]\to[0,\infty)$, $j=0,\dots,m+p$, что:
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: условие}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: условие}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Для всех $t\in(0,T]$ и всех $f\in D$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: условие}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Для всех $t\in(0,T]$ и всех $f\in D$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\Bigl\|S(t)f-\sum\limits_{k=0}^{m}\frac{t^kL^kf}{k!}\Bigr\|\le t^{m+1}\sum\limits_{j=0}^{m+p}K_j(t)\|L^jf\|.$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: условие}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent Для всех $t\in(0,T]$ и всех $f\in D$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\Bigl\|S(t)f-\sum\limits_{k=0}^{m}\frac{t^kL^kf}{k!}\Bigr\|\le t^{m+1}\sum\limits_{j=0}^{m+p}K_j(t)\|L^jf\|.$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent (Это локальная оценка приближения порядка $m$)
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: оценка отклонения}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: оценка отклонения}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent {\Large \textbf{Тогда:}} 1) Для всех $t>0$, $n\ge t/T$ и $f\in D$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: оценка отклонения}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent {\Large \textbf{Тогда:}} 1) Для всех $t>0$, $n\ge t/T$ и $f\in D$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\bigl\|S(t/n)^n f-e^{tL}f\bigr\|\le\frac{M_1M_2t^{m+1}e^{wt}}{n^m}\sum\limits_{j=0}^{m+p}C_j(t/n)\|L^jf\|.$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: оценка отклонения}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent {\Large \textbf{Тогда:}} 1) Для всех $t>0$, $n\ge t/T$ и $f\in D$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\bigl\|S(t/n)^n f-e^{tL}f\bigr\|\le\frac{M_1M_2t^{m+1}e^{wt}}{n^m}\sum\limits_{j=0}^{m+p}C_j(t/n)\|L^jf\|.$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Здесь $C_{m+1}(t)=K_{m+1}(t)e^{-wt}+\frac{M_1}{(m+1)!}$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: оценка отклонения}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent {\Large \textbf{Тогда:}} 1) Для всех $t>0$, $n\ge t/T$ и $f\in D$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\bigl\|S(t/n)^n f-e^{tL}f\bigr\|\le\frac{M_1M_2t^{m+1}e^{wt}}{n^m}\sum\limits_{j=0}^{m+p}C_j(t/n)\|L^jf\|.$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Здесь $C_{m+1}(t)=K_{m+1}(t)e^{-wt}+\frac{M_1}{(m+1)!}$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent При $j\ne m+1$ имеем $C_j(t)=K_j(t)e^{-wt}$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: сходимость}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: сходимость}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent 2) Пусть $D$ плотно в $F$ и $K_j(t)=o(t^{-m})$ при $t\to0^+$ для всех $j$.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: сходимость}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent 2) Пусть $D$ плотно в $F$ и $K_j(t)=o(t^{-m})$ при $t\to0^+$ для всех $j$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Тогда для каждого $g\in F$ и каждого $\mathcal{T}>0$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Теорема Галкина--Ремизова: сходимость}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent 2) Пусть $D$ плотно в $F$ и $K_j(t)=o(t^{-m})$ при $t\to0^+$ для всех $j$.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent Тогда для каждого $g\in F$ и каждого $\mathcal{T}>0$
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent $\lim\limits_{n\to\infty,\ n\ge\mathcal{T}/T}\ \sup\limits_{t\in(0,\mathcal{T}]}\bigl\|S(t/n)^n g-e^{tL}g\bigr\|=0.$
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Литература}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Литература}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent [1] F.~Kühnemund. Bi-continuous\ semigroups on spaces with two topologies. Ph.D. thesis, Tübingen, 2001.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Литература}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent [1] F.~Kühnemund. Bi-continuous\ semigroups on spaces with two topologies. Ph.D. thesis, Tübingen, 2001.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent [2] A.A.~Albanese, E.~Mangino. Trotter--Kato theorems for bi-continuous semigroups. J. Math. Anal. Appl. 289 (2004), 477--492.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Литература}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent [1] F.~Kühnemund. Bi-continuous\ semigroups on spaces with two topologies. Ph.D. thesis, Tübingen, 2001.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent [2] A.A.~Albanese, E.~Mangino. Trotter--Kato theorems for bi-continuous semigroups. J. Math. Anal. Appl. 289 (2004), 477--492.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent [3] I.D.~Remizov. Chernoff approximations and resolvents of linear operators. arXiv:2301.06765 (2023).
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{center}
+{\color{notaeYELLOW}\bfseries\fontsize{44}{52}\selectfont Литература}
+\end{center}
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent [1] F.~Kühnemund. Bi-continuous\ semigroups on spaces with two topologies. Ph.D. thesis, Tübingen, 2001.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent [2] A.A.~Albanese, E.~Mangino. Trotter--Kato theorems for bi-continuous semigroups. J. Math. Anal. Appl. 289 (2004), 477--492.
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent [3] I.D.~Remizov. Chernoff approximations and resolvents of linear operators. arXiv:2301.06765 (2023).
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent [4] O.E.~Galkin, I.D.~Remizov. Rate of convergence in the Chernoff product formula. Isr. J. Math. 265 (2025), 929--943.
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \Huge Спасибо за внимание!
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\vspace*{\fill}
+\begin{center}
+\fontsize{36}{43}\selectfont
+\parbox{\linewidth}{\centering\noindent \Huge Спасибо за внимание!
+\par}\vspace{0.4in}
+\parbox{\linewidth}{\centering\noindent \Large Вопросы?
+\par}\vspace{0.4in}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\end{document}
